@@ -1,6 +1,10 @@
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
-    stages {
+    agent {
+        kubernetes {
+            defaultContainer 'jnlp'
+            yamlFile 'agentpod.yaml'
+        }
+    }    stages {
         stage('build') {
             steps {
                 sh 'python --version'
