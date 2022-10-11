@@ -4,7 +4,8 @@ pipeline {
             defaultContainer 'jnlp'
             yamlFile 'agentpod.yaml'
         }
-    }    stages {
+    }    
+    stages {
         stage('build') {
             steps {
                 sh 'python --version'
