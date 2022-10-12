@@ -6,7 +6,7 @@ metadata:
   name: kubeagent
   labels:
 
-    some-label: pod
+    label: kubeagent
     cloud: 'kubernetes'
 spec:
 
