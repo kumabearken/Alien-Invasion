@@ -1,7 +1,9 @@
+def AGENT_LABEL = null
+
 pipeline {
     agent{
         kubernetes {
-            label AGENT_LABEL
+            label "${AGENT_LABEL}"
             yamlFile 'agentpod.yaml'
         }
     }
