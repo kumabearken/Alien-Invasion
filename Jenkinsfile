@@ -1,6 +1,10 @@
 pipeline {
-    agent {
-        stages {
+    agent{
+        kubernetes {
+            label 'agent'
+        }
+    }
+    stages {
             stage('version') {
                 steps {
                     sh 'python3 --version'
@@ -12,5 +16,4 @@ pipeline {
                 }
             }
         }
-    }
 }
