@@ -1,7 +1,16 @@
 apiVersion: v1
 
 kind: Pod
+
+metadata:
+  name: kubeagent
+  labels:
+
+    label: kubeagent
+
 spec:
+  serviceAccountName: jenkins-admin
+  automountServiceAccountToken: false
   containers:
 
     - name: python
