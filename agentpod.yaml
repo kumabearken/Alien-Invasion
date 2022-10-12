@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 
 metadata:
-  name: agent
+  name: kubeagent
   labels:
 
     some-label: pod
