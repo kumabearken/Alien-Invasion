@@ -2,7 +2,7 @@ pipeline {
     agent{
         kubernetes {
             label 'kubeagent'
-            yaml 'agentpod.yaml'
+            yamlFile 'agentpod.yaml'
         }
     }
     stages {
