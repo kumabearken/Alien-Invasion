@@ -7,7 +7,7 @@ metadata:
   labels:
 
     some-label: pod
-    cloud: 'minikube'
+    cloud: 'kubernetes'
 spec:
 
   containers:
