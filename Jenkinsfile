@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            yamlFile 'agentpod.yaml'  // path to the pod definition relative to the root of our project 
+            label 'kubeagent'
         }
     }
     stages {
