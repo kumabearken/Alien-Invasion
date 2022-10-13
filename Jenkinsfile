@@ -11,7 +11,7 @@ podTemplate(containers: [
             container('python') {
                 stage('Shell Execution') {
                     checkout scm
-                    sh 'python hi.py'
+                    sh 'python Alien-Invasion/AlienInvasion/venv/Scripts/AlienInvasion.py'
                 }
             }
         }
