@@ -1,28 +1,18 @@
-pipeline {
-    podTemplate(containers: [
-        containerTemplate(
-            name: 'python', 
-            image: 'python:latest', 
-            command: 'sleep', 
-            args: '30d')
-    ]){
-        stages {
-            node(POD_LABEL) {
+podTemplate(yaml: 'agentpod.yaml', cloud: 'kubernetes'){
+    node(POD_LABEL) {
+        container('python') {
+            stages {
                 stage('version') {
-                    container('python'){
-                        steps {
-                            sh 'python3 --version'
-                        }
+                    steps {
+                        sh 'python3 --version'
                     }
-                }
+                }              
                 stage('hi'){
-                    container('python'){
-                        steps{
-                            sh 'python3 hi.py'
-                        }
+                    steps{
+                        sh 'python3 hi.py'
                     }
                 }
-            }
+            }      
         }
     }
 }
