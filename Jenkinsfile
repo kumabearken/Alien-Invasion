@@ -1,17 +1,15 @@
-podTemplate(containers: [
-    containerTemplate(name: 'python', image: 'python:3.10.7-alpine', ttyEnabled: true, command: 'cat')
-  ]) {
-    node(POD_LABEL) {
-        container('maven') {
-            stage('version') {
-                steps {
-                    sh 'python3 --version'
+pipeline {
+    agent none 
+    stages {
+        stage('Build') { 
+            agent {
+                docker {
+                    image 'python:2-alpine' 
                 }
-            }          
-            stage('hi'){
-                steps{
-                    sh 'python3 hi.py'
-                }
+            }
+            steps {
+                sh 'python3 hi.py'
+                stash(name: 'compiled-results', includes: 'sources/*.py*') 
             }
         }
     }
