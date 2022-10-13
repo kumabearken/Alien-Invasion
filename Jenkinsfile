@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3 hi.py'
+                sh 'python hi.py'
                 stash(name: 'compiled-results', includes: 'sources/*.py*') 
             }
         }
