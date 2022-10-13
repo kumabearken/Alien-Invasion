@@ -10,6 +10,7 @@ podTemplate(containers: [
         stage('Build a python project') {
             container('python') {
                 stage('Shell Execution') {
+                    checkout scm
                     sh 'python hi.py'
                 }
             }
